@@ -1,0 +1,143 @@
+type Review = 
+ record {
+   clinicId: text;
+   comment: text;
+   date: text;
+   id: text;
+   patientId: text;
+   patientName: text;
+   rating: nat;
+ };
+type Payment = 
+ record {
+   amount: nat;
+   appointmentId: text;
+   createdAt: int;
+   id: text;
+   method: text;
+   patientId: text;
+   status: text;
+ };
+type Patient = 
+ record {
+   address: text;
+   age: nat;
+   createdAt: int;
+   email: text;
+   gender: text;
+   id: text;
+   name: text;
+   phone: text;
+ };
+type MedicalRecord = 
+ record {
+   appointmentId: text;
+   fileName: text;
+   fileType: text;
+   id: text;
+   patientId: text;
+   uploadedAt: int;
+ };
+type Doctor = 
+ record {
+   availableDays: vec text;
+   bio: text;
+   clinicId: text;
+   consultationFee: nat;
+   departmentId: text;
+   experience: nat;
+   id: text;
+   isTodayAvailable: bool;
+   name: text;
+   photoUrl: text;
+   qualifications: text;
+   specialization: text;
+ };
+type Department = 
+ record {
+   clinicId: text;
+   description: text;
+   icon: text;
+   id: text;
+   name: text;
+ };
+type Coupon = 
+ record {
+   clinicId: text;
+   code: text;
+   discountType: text;
+   discountValue: nat;
+   expiryDate: text;
+   id: text;
+   isActive: bool;
+   maxUses: nat;
+   usedCount: nat;
+ };
+type Clinic = 
+ record {
+   accentColor: text;
+   address: text;
+   city: text;
+   email: text;
+   id: text;
+   name: text;
+   phone: text;
+   primaryColor: text;
+   tagline: text;
+   upiId: text;
+   website: text;
+   workingHours: text;
+ };
+type Appointment = 
+ record {
+   amount: nat;
+   clinicId: text;
+   couponCode: text;
+   createdAt: int;
+   date: text;
+   departmentId: text;
+   discount: nat;
+   doctorId: text;
+   id: text;
+   patientId: text;
+   paymentMethod: text;
+   paymentStatus: text;
+   queuePosition: nat;
+   reason: text;
+   status: text;
+   suggestedDate: text;
+   suggestedTime: text;
+   timeWindow: text;
+ };
+service : {
+  addMedicalRecord: ("record": MedicalRecord) -> (text);
+  addReview: (review: Review) -> (text);
+  createAppointment: (appointment: Appointment) -> (text);
+  createCoupon: (coupon: Coupon) -> (text);
+  createDoctor: (doctor: Doctor) -> (text);
+  createPatient: (patient: Patient) -> (text);
+  createPayment: (payment: Payment) -> (text);
+  deleteDoctor: (id: text) -> (bool);
+  getAppointments: () -> (vec Appointment) query;
+  getAppointmentsByDoctor: (doctorId: text) -> (vec Appointment) query;
+  getAppointmentsByPatient: (patientId: text) -> (vec Appointment) query;
+  getClinicInfo: () -> (opt Clinic) query;
+  getCoupons: () -> (vec Coupon) query;
+  getDepartments: () -> (vec Department) query;
+  getDoctors: () -> (vec Doctor) query;
+  getDoctorsByDepartment: (departmentId: text) -> (vec Doctor) query;
+  getMedicalRecords: (patientId: text) -> (vec MedicalRecord) query;
+  getPatient: (patientId: text) -> (opt Patient) query;
+  getPatients: () -> (vec Patient) query;
+  getPayments: () -> (vec Payment) query;
+  getReviews: () -> (vec Review) query;
+  getTodayAppointments: (date: text) -> (vec Appointment) query;
+  updateAppointmentStatus: (id: text, status: text, suggestedDate: text,
+   suggestedTime: text) -> (bool);
+  updateClinicInfo: (clinic: Clinic) -> (bool);
+  updateCoupon: (coupon: Coupon) -> (bool);
+  updateDoctor: (doctor: Doctor) -> (bool);
+  updatePatient: (patient: Patient) -> (bool);
+  updatePaymentStatus: (id: text, status: text) -> (bool);
+  validateCoupon: (code: text) -> (opt Coupon) query;
+}

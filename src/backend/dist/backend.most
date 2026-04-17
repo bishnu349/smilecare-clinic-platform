@@ -1,0 +1,181 @@
+// Version: 1.0.0
+type Appointment__3400962 =
+  {
+    amount : Nat;
+    clinicId : Text;
+    couponCode : Text;
+    createdAt : Int;
+    date : Text;
+    departmentId : Text;
+    discount : Nat;
+    doctorId : Text;
+    id : Text;
+    patientId : Text;
+    paymentMethod : Text;
+    paymentStatus : Text;
+    queuePosition : Nat;
+    reason : Text;
+    status : Text;
+    suggestedDate : Text;
+    suggestedTime : Text;
+    timeWindow : Text
+  };
+type Clinic__452215365 =
+  {
+    accentColor : Text;
+    address : Text;
+    city : Text;
+    email : Text;
+    id : Text;
+    name : Text;
+    phone : Text;
+    primaryColor : Text;
+    tagline : Text;
+    upiId : Text;
+    website : Text;
+    workingHours : Text
+  };
+type Coupon__948678266 =
+  {
+    clinicId : Text;
+    code : Text;
+    discountType : Text;
+    discountValue : Nat;
+    expiryDate : Text;
+    id : Text;
+    isActive : Bool;
+    maxUses : Nat;
+    usedCount : Nat
+  };
+type Department__652526631 =
+  {clinicId : Text; description : Text; icon : Text; id : Text; name : Text};
+type Doctor__242606700 =
+  {
+    availableDays : [Text];
+    bio : Text;
+    clinicId : Text;
+    consultationFee : Nat;
+    departmentId : Text;
+    experience : Nat;
+    id : Text;
+    isTodayAvailable : Bool;
+    name : Text;
+    photoUrl : Text;
+    qualifications : Text;
+    specialization : Text
+  };
+type MedicalRecord__524724688 =
+  {
+    appointmentId : Text;
+    fileName : Text;
+    fileType : Text;
+    id : Text;
+    patientId : Text;
+    uploadedAt : Int
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Patient__789701833 =
+  {
+    address : Text;
+    age : Nat;
+    createdAt : Int;
+    email : Text;
+    gender : Text;
+    id : Text;
+    name : Text;
+    phone : Text
+  };
+type Payment__492512395 =
+  {
+    amount : Nat;
+    appointmentId : Text;
+    createdAt : Int;
+    id : Text;
+    method : Text;
+    patientId : Text;
+    status : Text
+  };
+type Review__752705643 =
+  {
+    clinicId : Text;
+    comment : Text;
+    date : Text;
+    id : Text;
+    patientId : Text;
+    patientName : Text;
+    rating : Nat
+  };
+type Staff__889550374 =
+  {
+    clinicId : Text;
+    doctorId : Text;
+    email : Text;
+    id : Text;
+    isActive : Bool;
+    name : Text;
+    role : Text
+  };
+actor {
+  stable _seedInit : Bool;
+  stable appointments :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Appointment__3400962]];
+      var elementIndex : Nat__490723111
+    };
+  stable clinics :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Clinic__452215365]];
+      var elementIndex : Nat__490723111
+    };
+  stable coupons :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Coupon__948678266]];
+      var elementIndex : Nat__490723111
+    };
+  stable departments :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Department__652526631]];
+      var elementIndex : Nat__490723111
+    };
+  stable doctors :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Doctor__242606700]];
+      var elementIndex : Nat__490723111
+    };
+  stable patients :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Patient__789701833]];
+      var elementIndex : Nat__490723111
+    };
+  stable payments :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Payment__492512395]];
+      var elementIndex : Nat__490723111
+    };
+  stable records :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?MedicalRecord__524724688]];
+      var elementIndex : Nat__490723111
+    };
+  stable reviews :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Review__752705643]];
+      var elementIndex : Nat__490723111
+    };
+  stable staff :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Staff__889550374]];
+      var elementIndex : Nat__490723111
+    }
+};

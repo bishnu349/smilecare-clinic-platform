@@ -1,0 +1,29 @@
+{
+  "overview": "SmileCare Clinic Platform is a full-stack hybrid SaaS clinic management system featuring a premium public-facing medical website for SmileCare Clinic (Kolkata) and a comprehensive admin panel. Patients can browse doctors, book appointments through a guided multi-step flow, and manage their health records via a personal portal. Clinic staff get a powerful dashboard to manage appointments, doctors, patients, and payments — all with a professional deep teal and gold medical aesthetic.",
+  "features": [
+    "Public clinic website with Home, About, Departments, Doctors, Contact, and Reviews pages",
+    "7-step appointment booking flow with doctor selection, date/time window, OTP login, patient details, UPI payment, coupon code, and confirmation",
+    "Patient portal with appointment tracking, medical record uploads, and profile management",
+    "Admin dashboard with live stats, appointment approval workflow, and activity feed",
+    "Doctor management with add/edit/delete, weekly schedule, and department assignment",
+    "Patient records search with appointment history and uploaded document list",
+    "Payment management with manual status update and UPI ID settings",
+    "Multi-language support: English, Hindi, Bengali toggle for public website",
+    "Pre-loaded demo data: SmileCare Clinic, 3 doctors, 3 departments, sample appointments and reviews",
+    "Mobile-first responsive design with deep teal primary and warm gold accents"
+  ],
+  "category": "healthcare-saas",
+  "tags": [
+    "clinic",
+    "healthcare",
+    "saas",
+    "appointment-booking",
+    "admin-panel",
+    "patient-portal",
+    "multi-language",
+    "motoko",
+    "react",
+    "typescript"
+  ],
+  "last_updated": "2026-04-17T06:29:01.717Z"
+}
